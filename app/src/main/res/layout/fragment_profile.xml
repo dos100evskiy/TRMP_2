@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff4d9"
+    tools:context=".Profile">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="15dp"
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/textViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:paddingVertical="15dp"
+            android:text="Пользователь: " />
+
+        <TextView
+            android:id="@+id/textViewProfile2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:paddingVertical="15dp"
+            android:text="Забронированно гостинц: 32" />
+
+        <TextView
+            android:id="@+id/textViewProfile3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:paddingVertical="15dp"
+            android:text="Поставте максимальный балл: да" />
+
+        <TextView
+            android:id="@+id/textViewProfile4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:paddingVertical="15dp"
+            android:text="Рейтинг пользовтеля: -3.3" />
+
+
+        <Button
+            android:id="@+id/buttonProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="100dp"
+            android:gravity="bottom|center"
+            android:paddingVertical="15dp"
+            android:text="@string/ButtonProfile"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+</FrameLayout>

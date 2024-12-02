@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#DCD1B4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:paddingBottom="20dp">
+    
+    <ImageView
+        android:id="@+id/imageInList"
+        android:layout_width="match_parent"
+        android:layout_height="250sp"
+        android:scaleType="centerCrop"/>
+    
+    <TextView
+        android:id="@+id/titleInList"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:textStyle="bold"
+        android:text="Text"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/locationInList"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:text="Text"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/ratingInList"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:text="Text"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/priceInList"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        android:text="Text"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:paddingTop="30dp"
+        android:paddingVertical="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Добавить в корзину"
+        android:textSize="20dp"
+        android:paddingBottom="6dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

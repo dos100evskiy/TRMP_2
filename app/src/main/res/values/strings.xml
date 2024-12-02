@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="MainActivityTitle">Список отелей</string>
+    <string name="AuthActicityTItle">Авторизация</string>
+    <string name="AuthActivityLoginHint">Введите логин</string>
+    <string name="AuthActivityPassHint">Введите пароль</string>
+    <string name="AuthActivityButton">Войти</string>
+    <string name="LoadText">Загрузка</string>
+    <string name="ButtonProfile">Выйти из аккаунта</string>
+    <string name="SettingsSwitch">Настройка Адын</string>
+    <string name="SettingsSwitch2">Настройка Дыва</string>
+    <string name="SettingsSwitch3">Настройка Тыры</string>
+    <string name="SettingsText2">Поставте максимальный балл: да</string>
+    <string name="SettingsTitle">Настройки</string>
+</resources>
