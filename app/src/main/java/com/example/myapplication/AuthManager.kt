@@ -3,8 +3,6 @@ package com.example.myapplication.utils
 
 import android.app.Activity
 import android.content.Context
-import com.example.myapplication.AuthActivity
-import com.example.myapplication.Profile
 
 object SharedPreferencesHelper {
 

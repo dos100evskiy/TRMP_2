@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.time.LocalDateTime
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,11 +42,11 @@ class Home : Fragment() {
         val hotelsList = rootView.findViewById<RecyclerView>(R.id.MainList)
         val hotels = arrayListOf<Hotel>()
 
-        hotels.add(Hotel(0, "Отель 1", "Тут 1", 111.1F, 1.1F,
+        hotels.add(Hotel(0, "Отель 1", "Тут 1", 111.1F, listOf<LocalDateTime>(LocalDateTime.now(), LocalDateTime.now().plusWeeks(1), LocalDateTime.now().plusHours(1), LocalDateTime.now().plusWeeks(2)), mutableListOf<CustomData>(), 1.1F,
             "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/01/da/89/hotel-brooklyn-bridge.jpg?w=700&h=-1&s=1"))
-        hotels.add(Hotel(1, "Отель 2", "Тут 2", 222.2F, 2.2F,
+        hotels.add(Hotel(1, "Отель 2", "Тут 2", 222.2F, listOf<LocalDateTime>(LocalDateTime.now(), LocalDateTime.now().plusWeeks(1)), mutableListOf<CustomData>(),2.2F,
             "https://cdn.worldota.net/t/640x400/extranet/0b/2d/0b2d1c5b17b7b3ad2374be907f2430bdf2deb3be.JPEG"))
-        hotels.add(Hotel(2, "Отель 3", "Тут 3", 3333.3F, 3.3F,
+        hotels.add(Hotel(2, "Отель 3", "Тут 3",  3333.3F, listOf<LocalDateTime>(), mutableListOf<CustomData>(CustomData("Бассейн", 34F)), 3.3F,
             "https://sapporo-hotel.ru/images/img-news-three-stars.jpg"))
 
         hotelsList.layoutManager = LinearLayoutManager(requireContext())

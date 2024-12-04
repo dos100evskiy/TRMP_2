@@ -1,9 +1,11 @@
 package com.example.myapplication
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,9 @@ class HotelsAdapter(var hotels: List<Hotel>, var context: Context) : RecyclerVie
         val rating: TextView = view.findViewById(R.id.ratingInList)
         val price: TextView = view.findViewById(R.id.priceInList)
         val img: ImageView = view.findViewById(R.id.imageInList)
+
+        val btn: Button = view.findViewById(R.id.buttonInList)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -30,10 +35,18 @@ class HotelsAdapter(var hotels: List<Hotel>, var context: Context) : RecyclerVie
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.title.text = hotels[position].title
-        holder.location.text = hotels[position].location
-        holder.rating.text = hotels[position].price.toString()
-        holder.price.text = hotels[position].price.toString()
+        holder.location.text = "Местоположени: ${hotels[position].location}"
+        holder.rating.text = "Рейтинг: ${hotels[position].rating.toString()}"
+        holder.price.text = "Цена: ${hotels[position].price.toString()}"
         Picasso.get().load(hotels[position].img).into(holder.img)
 
+        holder.btn.setOnClickListener {
+            val intent = Intent(context, HotelActivity::class.java)
+
+            intent.putExtra("Hotel", hotels[position])
+
+
+            context.startActivity(intent)
+        }
     }
 }

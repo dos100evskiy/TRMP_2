@@ -50,11 +50,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
+        android:id="@+id/buttonInList"
         android:paddingTop="30dp"
         android:paddingVertical="10dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Добавить в корзину"
+        android:text="Просмотреть"
         android:textSize="20dp"
         android:paddingBottom="6dp"
         android:layout_gravity="center"/>
