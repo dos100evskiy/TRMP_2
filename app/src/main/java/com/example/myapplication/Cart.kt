@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDateTime
@@ -71,6 +72,11 @@ class Cart : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = HotelsAdapterCart(hotels, requireContext(), ::updateUI)
 
+        btn.setOnClickListener{
+            hotels.clear()
+            Toast.makeText(requireContext(), "Заказ оставлен", Toast.LENGTH_LONG).show()
+            updateUI()
+        }
 
         return rootView
     }
