@@ -50,7 +50,7 @@ class Home : Fragment() {
             "https://sapporo-hotel.ru/images/img-news-three-stars.jpg"))
 
         hotelsList.layoutManager = LinearLayoutManager(requireContext())
-        hotelsList.adapter = HotelsAdapter(hotels, requireContext())
+        hotelsList.adapter = HotelsAdapterMain(hotels, requireContext())
         // Inflate the layout for this fragment
         return rootView
     }

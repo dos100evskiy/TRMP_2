@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class HotelsAdapter(var hotels: List<Hotel>, var context: Context) : RecyclerView.Adapter<HotelsAdapter.MyViewHolder>() {
+class HotelsAdapterMain(var hotels: List<Hotel>, var context: Context) : RecyclerView.Adapter<HotelsAdapterMain.MyViewHolder>() {
 
     class MyViewHolder(view : View) :RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.titleInList)
@@ -25,7 +25,7 @@ class HotelsAdapter(var hotels: List<Hotel>, var context: Context) : RecyclerVie
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.hotel_in_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.hotel_in_list_main, parent, false)
         return MyViewHolder(view)
     }
 

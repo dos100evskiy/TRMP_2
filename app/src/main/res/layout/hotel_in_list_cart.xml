@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#DCD1B4"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:paddingBottom="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"></LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageInListCart"
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/titleInListCart"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:textStyle="bold"
+        android:text="Text"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/priceInListCart"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp"
+        android:text="Text"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_marginRight="20dp"/>
+    <Button
+        android:id="@+id/buttonInListCart"
+        android:paddingTop="30dp"
+        android:paddingVertical="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Удалить"
+        android:textSize="20dp"
+        android:paddingBottom="6dp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

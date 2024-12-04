@@ -12,4 +12,5 @@
     <string name="SettingsSwitch3">Настройка Тыры</string>
     <string name="SettingsText2">Поставте максимальный балл: да</string>
     <string name="SettingsTitle">Настройки</string>
+    <string name="CartButton">Заказать</string>
 </resources>

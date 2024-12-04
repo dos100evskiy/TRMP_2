@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import SharedPreferencesHotels
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -11,7 +12,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.myapplication.utils.SharedPreferencesHotels
 import com.squareup.picasso.Picasso
 import java.time.format.DateTimeFormatter
 
@@ -84,8 +84,23 @@ class HotelActivity : AppCompatActivity() {
             this.startActivity(intent)
         }
 
+        val delString = "Удалить из корзины"
+        val addString = "Добавить в корзину"
+
+        if(SharedPreferencesHotels.isHotelSelected(this, hotel)) {
+            addBtn.text = delString
+        } else {
+            addBtn.text = addString
+        }
+
         addBtn.setOnClickListener {
-            SharedPreferencesHotels.addHotel(this, hotel)
+            if (SharedPreferencesHotels.isHotelSelected(this, hotel)) {
+                SharedPreferencesHotels.removeHotel(this, hotel)
+                addBtn.text = addString
+            } else {
+                SharedPreferencesHotels.addHotel(this, hotel)
+                addBtn.text = delString
+            }
         }
     }
 }

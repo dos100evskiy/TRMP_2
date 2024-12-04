@@ -1,70 +1,53 @@
-package com.example.myapplication.utils
-
-import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import com.example.myapplication.Hotel
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 object SharedPreferencesHotels {
 
-    private const val SHARED_PREFS_NAME = "HotelPrefs"
-    private const val HOTELS_KEY = "hotels_list"
-    private val gson = Gson()
+    private lateinit var sharedPreferences: SharedPreferences
 
-    // Сохранение отеля в SharedPreferences
-    fun addHotel(context: Activity, hotel: Hotel) {
-        val sharedPreferences = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
-        val hotelsJson = sharedPreferences.getString(HOTELS_KEY, "[]") ?: "[]"
+    // Ключ для хранения списка выбранных отелей
+    private const val SELECTED_HOTELS_KEY = "selected_hotels"
 
-        // Десериализуем текущие отели
-        val type = object : TypeToken<ArrayList<Hotel>>() {}.type
-        val hotels: ArrayList<Hotel> = gson.fromJson(hotelsJson, type)
-
-        // Добавляем новый отель в список
-        if (!hotels.contains(hotel)) {
-            hotels.add(hotel)
-        }
-
-        // Сериализуем список отелей обратно в JSON
-        val updatedHotelsJson = gson.toJson(hotels)
-
-        // Сохраняем обновленный список в SharedPreferences
-        val editor = sharedPreferences.edit()
-        editor.putString(HOTELS_KEY, updatedHotelsJson)
-        editor.apply()
+    // Добавление отеля в список
+    fun addHotel(context: Context, hotel: Hotel) {
+        init(context)
+        val hotelId = hotel.id.toString() // Идентификатор отеля для сохранения
+        val selectedHotels = getSelectedHotels(context).toMutableSet()
+        selectedHotels.add(hotelId)
+        saveSelectedHotels(selectedHotels)
     }
 
-    // Удаление отеля из SharedPreferences
-    fun delHotel(context: Activity, hotel: Hotel) {
-        val sharedPreferences = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
-        val hotelsJson = sharedPreferences.getString(HOTELS_KEY, "[]") ?: "[]"
-
-        // Десериализуем текущие отели
-        val type = object : TypeToken<ArrayList<Hotel>>() {}.type
-        val hotels: ArrayList<Hotel> = gson.fromJson(hotelsJson, type)
-
-        // Удаляем отель из списка
-        if (hotels.contains(hotel)) {
-            hotels.remove(hotel)
-        }
-
-        // Сериализуем список отелей обратно в JSON
-        val updatedHotelsJson = gson.toJson(hotels)
-
-        // Сохраняем обновленный список в SharedPreferences
-        val editor = sharedPreferences.edit()
-        editor.putString(HOTELS_KEY, updatedHotelsJson)
-        editor.apply()
+    // Удаление отеля из списка
+    fun removeHotel(context: Context, hotel: Hotel) {
+        init(context)
+        val hotelId = hotel.id.toString()
+        val selectedHotels = getSelectedHotels(context).toMutableSet()
+        selectedHotels.remove(hotelId)
+        saveSelectedHotels(selectedHotels)
     }
 
-    // Получение списка отелей из SharedPreferences
-    fun getHotels(context: Context): ArrayList<Hotel> {
-        val sharedPreferences = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
-        val hotelsJson = sharedPreferences.getString(HOTELS_KEY, "[]") ?: "[]"
+    // Получение списка выбранных отелей
+    fun getSelectedHotels(context: Context): Set<String> {
+        init(context)
+        return sharedPreferences.getStringSet(SELECTED_HOTELS_KEY, mutableSetOf()) ?: mutableSetOf()
+    }
 
-        // Десериализуем JSON строку в список объектов Hotel
-        val type = object : TypeToken<ArrayList<Hotel>>() {}.type
-        return gson.fromJson(hotelsJson, type)
+    // Проверка, выбран ли отель
+    fun isHotelSelected(context: Context,hotel: Hotel): Boolean {
+        init(context)
+        return getSelectedHotels(context).contains(hotel.id.toString())
+    }
+
+    // Инициализация SharedPreferences
+    private fun init(context: Context) {
+        sharedPreferences = context.getSharedPreferences("SelectedHotelsPrefs", Context.MODE_PRIVATE)
+    }
+
+    // Сохранение списка выбранных отелей
+    private fun saveSelectedHotels(selectedHotels: Set<String>) {
+        val editor = sharedPreferences.edit()
+        editor.putStringSet(SELECTED_HOTELS_KEY, selectedHotels)
+        editor.apply()
     }
 }
